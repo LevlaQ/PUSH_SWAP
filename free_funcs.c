@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   free_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 18:53:02 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/09 19:27:38 by gyildiz          ###   ########.fr       */
+/*   Created: 2025/02/09 19:12:18 by gyildiz           #+#    #+#             */
+/*   Updated: 2025/02/09 19:13:02 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_strings(char **strings)
 {
-	if (!error_main(argc, argv))
-		return (0);
-	printf("All is well\n");
+	size_t	i;
+
+	if (!strings)
+		return;
+	i = 0;
+	while (strings[i]) // Alt stringleri serbest bırak
+	{
+		free(strings[i]);
+		i++;
+	}
+	free(strings); // Son olarak ana pointer'ı serbest bırak
 }
