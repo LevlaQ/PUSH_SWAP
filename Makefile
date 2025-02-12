@@ -6,11 +6,12 @@
 #    By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 18:46:08 by gyildiz           #+#    #+#              #
-#    Updated: 2025/02/09 19:20:59 by gyildiz          ###   ########.fr        #
+#    Updated: 2025/02/12 18:03:26 by gyildiz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =			error_functions.c error_helpers.c free_funcs.c
+SRCS =			error_functions.c error_helpers.c free_funcs.c\
+				take_into_stack.c 
 OBJS =			$(SRCS:.c=.o)
 
 NAME =			libftpushswap.a

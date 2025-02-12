@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/09 19:23:28 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/12 17:57:46 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int		chk_minmax(char **el);
 int		modified_atoi_limits(char *str);
 int		chk_if_repeats(char **el);
 void	free_strings(char **strings);
+int		to_the_stack_a_main(int argc, char **argv, t_plate **lst);
+int		into_stack(int argc, char **el, t_plate **lst);
+int		add_plate_front(t_plate **lst, int number);
 
 
 #endif 
