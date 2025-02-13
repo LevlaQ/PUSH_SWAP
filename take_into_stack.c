@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:12:05 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/13 13:15:29 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/13 15:28:22 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int into_stack(int argc, char **el, t_plate **lst)
 	return (1);
 }
 
-//Elemanları tek tek listenin başından ekliyor
+//Elemanları tek tek listenin başından ekliyor, prev olacak şekilde güncellendi
 int add_plate_front(t_plate **lst, int number)
 {
 	t_plate	*new_plate;
@@ -67,6 +67,9 @@ int add_plate_front(t_plate **lst, int number)
 		return (0);
 	new_plate->value = number;
 	new_plate->next = *lst;
+	new_plate->prev = NULL;
+	if(*lst)
+		(*lst)->prev = new_plate;
 	*lst = new_plate;
 	return (1);
 }

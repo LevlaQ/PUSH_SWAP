@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/13 13:08:52 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:21:46 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_plate
 	int				index;
 	int				value;
 	struct s_plate	*next;
+	struct s_plate	*prev;
 } t_plate;
 
 int		error_main(int argc, char **argv);
@@ -40,6 +41,13 @@ int		to_the_stack_a_main(int argc, char **argv, t_plate **lst);
 int		into_stack(int argc, char **el, t_plate **lst);
 int		add_plate_front(t_plate **lst, int number);
 void	index_the_stack(t_plate **lst);
-
+void	push_to_a(t_plate **sa, t_plate **sb);
+void	r_rotate_a(t_plate **sa);
+void	r_rotate_b(t_plate **sb);
+void	rr_ab(t_plate **sa, t_plate **sb);
+void	push_to_b(t_plate **sa, t_plate **sb);
+void	rotate_a(t_plate **sa);
+void	rotate_b(t_plate **sb);
+void	rotate_ab(t_plate **sa, t_plate **sb);
 
 #endif 
