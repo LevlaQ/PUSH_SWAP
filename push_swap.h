@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/12 17:57:46 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/13 13:08:52 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	free_strings(char **strings);
 int		to_the_stack_a_main(int argc, char **argv, t_plate **lst);
 int		into_stack(int argc, char **el, t_plate **lst);
 int		add_plate_front(t_plate **lst, int number);
+void	index_the_stack(t_plate **lst);
 
 
 #endif 

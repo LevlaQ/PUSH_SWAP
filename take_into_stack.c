@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:12:05 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/12 18:06:15 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/13 13:15:29 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ int	to_the_stack_a_main(int argc, char **argv, t_plate **lst)
 			stcnt++;
 		if(!into_stack(stcnt, a_values, lst))
 			return(printf("Error(Problem creating the stack)\n"), 0);
+		index_the_stack(lst);
 		free_strings(a_values);
 	}
 	else if(argc > 2)
 	{
 		if(!into_stack(argc - 1, argv + 1, lst )) //a.out dahil edilmeden veri gönderimi yapıldı
 			return(printf("Error(Problem creating the stack)\n"), 0);
+		index_the_stack(lst);
 	}
 	return(1);
 }
@@ -56,7 +58,7 @@ int into_stack(int argc, char **el, t_plate **lst)
 }
 
 //Elemanları tek tek listenin başından ekliyor
-int add_plate_front(t_plate **lst, int number) 
+int add_plate_front(t_plate **lst, int number)
 {
 	t_plate	*new_plate;
 
@@ -67,4 +69,19 @@ int add_plate_front(t_plate **lst, int number)
 	new_plate->next = *lst;
 	*lst = new_plate;
 	return (1);
+}
+
+void index_the_stack(t_plate **lst)
+{
+	t_plate	*iter;
+	int		i;
+	
+	i = 0;
+	iter = *lst;
+	while(iter)
+	{
+		iter->index = i;
+		iter = iter->next;
+		i++;
+	}
 }

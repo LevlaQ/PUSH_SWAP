@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:53:02 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/12 18:08:08 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/13 13:09:28 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ int	main(int argc, char **argv)
 	while (iter != NULL)
 	{
 		printf("%d\n", iter -> value);
+		iter = iter -> next;	
+	}
+	iter = stack_a;
+	while (iter != NULL)
+	{
+		printf("%d\n", iter -> index);
 		iter = iter -> next;	
 	}
 }
