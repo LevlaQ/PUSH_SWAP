@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/10 16:27:50 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/18 16:27:46 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int error_multi_args(char **argv)
 	if (!chk_integers_general(argv))// Tüm argümanlar karakter kontrolünden geçti, şimdi sayı kontrolü yap
 	{
 		return (0);
-    }
+	}
 	return (1);// Tüm kontroller başarılı, 1 döndür
 }
 
