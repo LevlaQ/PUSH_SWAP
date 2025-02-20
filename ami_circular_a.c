@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:31:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/18 20:49:48 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/20 13:08:52 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,34 @@ t_plate	*find_min(t_plate **lst)
 	while(iter)
 	{
 		if(iter->value < min_plate->value) //Eğer yeni gösterilen değer küçükse halihazırda min_plate'te olan değerden
-			min_plate = iter;				//Yeni min değeri bu
+			min_plate = iter;			   //Yeni min değeri bu
 		iter = iter->next;
 	}
 	return (min_plate); //min değere sahip tabağa işaret eden pointerı döndür
+}
+
+int	is_sorted_from_min(t_plate **sa)
+{
+	t_plate	*iter;
+	
+	iter = (*sa);
+	while(iter->next)
+	{
+		if(iter->value > iter->next->value)
+			return (0); //Sayılar küçükten büyüğe sıralı değil
+		iter = iter->next;
+	}
+	return (1); //Sayılar küçükten büyüğe sıralı
+}
+
+int	get_end_value(t_plate **both)
+{
+	t_plate	*iter;
+
+	iter = (*both);
+	while(iter->next)
+		iter = iter->next;
+	return(iter->value);
 }
 
 int	ami_inorder_a(t_plate **sa)
@@ -35,24 +59,21 @@ int	ami_inorder_a(t_plate **sa)
 	
 	if(!(*sa) || !((*sa)->next)) //Tek elemanlı veya hiç eleman yoksa listem sıralı
 		return (1);
-	iter = find_min(&(*sa)); //Bu kısım biraz karıştırdı beni
+	iter = find_min(sa); //Minimum sayımdan itibaren sıralama kontrolü başlayacak
 	index_min = iter->index;
-	while(iter->next)
-	{
-		if(iter->value > iter->next->value)
-			return (0); //stack a sıralı değil
-		iter = iter->next;
-	}
+	if (!is_sorted_from_min(&iter)) //minimum değerin tabağının indexini gönderdim
+		return (0);
 	if (index_min == 0)
 		return (1); //Listem hem dairesel hem de düz sıralı
 	iter = (*sa);
-	while((iter->index != index_min) && iter->next)
+	if (iter->value < get_end_value(sa)) //Liste sonundan liste başına dairesel sıralı mı
+		return (0);
+	while((iter->index != index_min))
 	{
-		if(iter->value > iter->next->value)
+		if((iter->value > iter->next->value) && (iter->next->index != index_min))
 			return (0); //stack a sıralı değil
 		iter = iter->next;
 	}
 	return (1);
 }
 
-int haha();

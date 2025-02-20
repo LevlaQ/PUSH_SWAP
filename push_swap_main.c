@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:53:02 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/18 20:46:37 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/20 13:20:35 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (!to_the_stack_a_main(argc, argv, &stack_a))
 		return (0);
-	int a = ami_inorder_a(&stack_a);
+	int a = ami_inorder_b(&stack_a);
 	printf("%d\n", a);
 	// t_plate *iter = stack_a;
 	// while (iter != NULL)

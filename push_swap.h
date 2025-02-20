@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/18 20:40:56 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/20 13:19:54 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	rotate_a(t_plate **sa);
 void	rotate_b(t_plate **sb);
 void	rotate_ab(t_plate **sa, t_plate **sb);
 t_plate	*find_min(t_plate **lst);
-int	ami_inorder_a(t_plate **sa);
+int		is_sorted_from_min(t_plate **sa);
+int		get_end_value(t_plate **both);
+int		ami_inorder_a(t_plate **sa);
+t_plate	*find_max(t_plate **lst);
+int		is_sorted_from_max(t_plate **sb);
+int		ami_inorder_b(t_plate **sb);
 
 #endif 
