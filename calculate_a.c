@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   calculate_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 18:53:02 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/20 13:25:49 by gyildiz          ###   ########.fr       */
+/*   Created: 2025/02/20 13:31:44 by gyildiz           #+#    #+#             */
+/*   Updated: 2025/02/20 13:51:59 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int calc_acost_and_ptb(t_plate **sa, t_plate **sb)
 {
-	t_plate	*stack_a;
-	t_plate *stack_b;
-	
-	if (!error_main(argc, argv)) //Error kontrollerinden geçti
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	if (!to_the_stack_a_main(argc, argv, &stack_a)) //stack'a ya sayılar alındı
-		return (0);
+	if (!ami_inorder_a(sa) && !(*sb)) //Eğer a sıralı değilse ve b boş ise (ki ilk çağırışım boş olması lazım)
+	{
+		push_to_b(sa, sb);//B'ye bir eleman at
+		printf("pb\n");
+	}
+	while(!ami_inorder_a(sa))
+	{
+		
+	}
+}
 
+int find_my_target_in_b(t_plate **sa, t_plate **sb)
+{
+	
 }

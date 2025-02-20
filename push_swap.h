@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/20 13:19:54 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/20 20:47:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@
 typedef struct s_plate
 {
 	int				index;
+	int				target_i;
 	int				value;
 	int				cost;
-	int				moves_a_ra; //ra mı rra mı olduğuna bağlı olarak ortak maliyet hesabı yapılabilir
-	int				moves_a_rra;
-	int				moves_b_rb;
-	int				moves_b_rrb;
+	int				moves_r; //ra mı rra mı olduğuna bağlı olarak ortak maliyet hesabı yapılabilir
+	int				moves_rr;
 	struct s_plate	*next;
 	struct s_plate	*prev;
 } 	t_plate;
@@ -56,10 +55,13 @@ void	rotate_b(t_plate **sb);
 void	rotate_ab(t_plate **sa, t_plate **sb);
 t_plate	*find_min(t_plate **lst);
 int		is_sorted_from_min(t_plate **sa);
-int		get_end_value(t_plate **both);
+int		get_end_value(t_plate **lst);
 int		ami_inorder_a(t_plate **sa);
 t_plate	*find_max(t_plate **lst);
 int		is_sorted_from_max(t_plate **sb);
 int		ami_inorder_b(t_plate **sb);
+int		last_index(t_plate **lst);
+int 	r_or_rr(int last_index, int my_index);
+int		how_many_moves(int last_index, t_plate **plate);
 
 #endif 

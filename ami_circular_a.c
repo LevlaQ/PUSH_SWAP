@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculate.c                                        :+:      :+:    :+:   */
+/*   ami_circular_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:31:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/20 13:08:52 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/20 15:36:11 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int	is_sorted_from_min(t_plate **sa)
 	return (1); //Sayılar küçükten büyüğe sıralı
 }
 
-int	get_end_value(t_plate **both)
+int	get_end_value(t_plate **lst)
 {
 	t_plate	*iter;
 
-	iter = (*both);
+	iter = (*lst);
 	while(iter->next)
 		iter = iter->next;
 	return(iter->value);
