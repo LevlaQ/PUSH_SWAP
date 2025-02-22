@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:12:05 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/13 15:28:22 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/22 14:21:22 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int add_plate_front(t_plate **lst, int number)
 {
 	t_plate	*new_plate;
 
-	new_plate = (t_plate *)malloc(sizeof(t_plate));
+	new_plate = (t_plate *)ft_calloc(1, sizeof(t_plate)); //Calloc kullandım çünkü garbage değer olmasını istemiyorum
 	if(!new_plate)
 		return (0);
 	new_plate->value = number;

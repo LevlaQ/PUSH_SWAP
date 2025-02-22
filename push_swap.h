@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/20 20:47:00 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/22 13:49:33 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int		ami_inorder_b(t_plate **sb);
 int		last_index(t_plate **lst);
 int 	r_or_rr(int last_index, int my_index);
 int		how_many_moves(int last_index, t_plate **plate);
+void	tactics_into_plates(t_plate **plate, t_plate **lst);
 
 #endif 

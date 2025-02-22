@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:18:37 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/20 18:14:57 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/22 14:09:33 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ int r_or_rr(int last_index, int my_index)
 	//Bu fonksiyona tek elemanlı liste gelmemeli
 	//median üstü (yukarı kayacaklar) 1 altı 0 olsun (aşağı kayacaklar)
 	//r ve rr maliyeti eşit durumlar 2 döndürsün
-	
 	int	median_i;
 	
+	if(last_index == 0)
+		return (2);
 	if(last_index % 2 == 0)
 	{
 		median_i = (last_index / 2);
@@ -76,7 +77,20 @@ int	how_many_moves(int last_index, t_plate **plate)
 	}
 }
 
-void	tactics_into_plates(t_plate **plate)
+void	tactics_into_plates(t_plate **plate, t_plate **lst)
 {
+	int	ls_lenght;
+	int	moves;
 	
+	ls_lenght = last_index(lst);
+	moves = how_many_moves(ls_lenght, plate);
+	if(r_or_rr(ls_lenght, (*plate)->index) == 2)
+	{
+		(*plate)->moves_r = moves;
+		(*plate)->moves_rr = moves;
+	}
+	if(r_or_rr(ls_lenght, (*plate)->index) == 1)
+		(*plate)->moves_r = moves;
+	if(r_or_rr(ls_lenght, (*plate)->index) == 0)
+		(*plate)->moves_rr = moves;
 }
