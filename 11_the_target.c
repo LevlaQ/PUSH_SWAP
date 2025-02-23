@@ -1,28 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_free_funcs.c                                    :+:      :+:    :+:   */
+/*   11_the_target.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 19:12:18 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:10:23 by gyildiz          ###   ########.fr       */
+/*   Created: 2025/02/23 14:09:36 by gyildiz           #+#    #+#             */
+/*   Updated: 2025/02/23 14:09:52 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_strings(char **strings)
-{
-	size_t	i;
-
-	if (!strings)
-		return;
-	i = 0;
-	while (strings[i]) // Alt stringleri serbest bırak
-	{
-		free(strings[i]);
-		i++;
-	}
-	free(strings); // Son olarak ana pointer'ı serbest bırak
-}
