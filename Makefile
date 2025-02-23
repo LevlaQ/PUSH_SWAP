@@ -6,13 +6,14 @@
 #    By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 18:46:08 by gyildiz           #+#    #+#              #
-#    Updated: 2025/02/22 13:55:45 by gyildiz          ###   ########.fr        #
+#    Updated: 2025/02/23 13:52:52 by gyildiz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =			error_functions.c error_helpers.c free_funcs.c\
 				take_into_stack.c moves.c movess.c ami_circular_a.c\
-				ami_circular_b.c my_cost.c 
+				ami_circular_b.c my_cost.c my_cost_main.c say_perform.c\
+				
 OBJS =			$(SRCS:.c=.o)
 
 NAME =			libftpushswap.a

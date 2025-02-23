@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/22 13:49:33 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/23 13:50:46 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@
 typedef struct s_plate
 {
 	int				index;
-	int				target_i;
 	int				value;
 	int				cost;
-	int				moves_r; //ra mı rra mı olduğuna bağlı olarak ortak maliyet hesabı yapılabilir
-	int				moves_rr;
+	int				perform_rr;
+	int				perform_rrr;
+	int				perform_ra;
+	int				perform_rra;
+	int				perform_rb;
+	int				perform_rrb;
 	struct s_plate	*next;
 	struct s_plate	*prev;
 } 	t_plate;
@@ -60,9 +63,15 @@ int		ami_inorder_a(t_plate **sa);
 t_plate	*find_max(t_plate **lst);
 int		is_sorted_from_max(t_plate **sb);
 int		ami_inorder_b(t_plate **sb);
-int		last_index(t_plate **lst);
-int 	r_or_rr(int last_index, int my_index);
-int		how_many_moves(int last_index, t_plate **plate);
-void	tactics_into_plates(t_plate **plate, t_plate **lst);
+int		m_last_index(t_plate **lst);
+int 	r_or_rr(t_plate **lst, int my_index);
+int		how_many_moves(t_plate **lst, t_plate **plate);
+void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b);
+void	cost_perf_b(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b);
+void	perform_1(t_plate **p, int mvs_a, int mvs_b);
+void	perform_2(t_plate **p, int mvs_a, int mvs_b);
+void	perform_3(t_plate **p, int mvs_a, int mvs_b, int drctn_a, int drctn_b);
+void	perform_4(t_plate **p, int mvs_a, int mvs_b);
+void	perform_5(t_plate **p, int mvs_a, int mvs_b);
 
 #endif 
