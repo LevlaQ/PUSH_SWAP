@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:00:45 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:11:04 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/23 19:37:23 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	cost(int mvs_a, int mvs_b, int drctn_a, int drctn_b)
 		return (mvs_a + mvs_b);
 }
 
-//Performansların tamamı A listesi taşlarına yazılıyor
+//Performansların tamamı A listesi taşlarına yazılıyor, boş listeler göndermediğine emin ol!!!
 void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 {
 	int	mvs_a;
@@ -53,7 +53,7 @@ void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 		return ;
 }
 
-//Performansların tamamı B listesi taşlarına yazılıyor
+//Performansların tamamı B listesi taşlarına yazılıyor boş listeler göndermediğine emin ol!!!
 void	cost_perf_b(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 {
 	int	mvs_a;

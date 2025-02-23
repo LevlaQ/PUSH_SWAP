@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 12:49:46 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:11:15 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/23 19:32:25 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ void	perform_3(t_plate **p, int mvs_a, int mvs_b, int drctn_a, int drctn_b)
 {
 	if (drctn_a == 1)
 		(*p)->perform_ra = mvs_a;
-	else if (drctn_a == 0)
+	else 
 		(*p)->perform_rra = mvs_a;
-	else if (drctn_b == 1)
+	if (drctn_b == 1)
 		(*p)->perform_rb = mvs_b;
-	else if (drctn_b == 0)
-		(*p)->perform_rrb = mvs_b;
 	else
-		return ;
+		(*p)->perform_rrb = mvs_b;
 }
 
 //3 0/0 3 durumları için rrr gibi çalışacak bir fonksiyon
