@@ -6,14 +6,14 @@
 #    By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 18:46:08 by gyildiz           #+#    #+#              #
-#    Updated: 2025/02/23 14:06:50 by gyildiz          ###   ########.fr        #
+#    Updated: 2025/02/23 18:45:25 by gyildiz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =			00_error_functions.c 01_error_helpers.c 02_free_funcs.c\
 				03_take_into_stack.c 04_moves.c 05_movess.c 06_ami_circular_a.c\
 				07_ami_circular_b.c 08_my_cost_main.c 09_my_cost.c\
-				10_say_perform.c\
+				10_say_perform.c 11_the_target.c\
 				
 OBJS =			$(SRCS:.c=.o)
 
