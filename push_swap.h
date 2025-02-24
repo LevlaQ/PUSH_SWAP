@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 18:44:10 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/24 13:43:21 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,12 @@ void	perform_4(t_plate **p, int mvs_a, int mvs_b);
 void	perform_5(t_plate **p, int mvs_a, int mvs_b);
 t_plate	*my_target_in_b(int value, t_plate **sb);
 t_plate *my_target_in_a(int value, t_plate **sa);
+void	what_isit(t_plate **plate, t_plate **sa, t_plate **sb);
+void	do_ra(int count, t_plate **sa);
+void	do_rra(int count, t_plate **sa);
+void	do_rb(int count, t_plate **sb);
+void	do_rrb(int count, t_plate **sb);
+void	do_rr(int count, t_plate **sa,t_plate **sb);
+void	do_rrr(int count, t_plate **sa,t_plate **sb);
 
 #endif 
