@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:31:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:10:52 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/24 16:25:01 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ int	ami_inorder_a(t_plate **sa)
 			return (0); //stack a sıralı değil
 		iter = iter->next;
 	}
-	return (1);
+	return (1); //Listem dairesel sıralı
 }
 

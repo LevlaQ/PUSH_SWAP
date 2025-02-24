@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:18:37 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:11:09 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/24 15:14:23 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	m_last_index(t_plate **lst)
 	return (iter->index); //Maliyet hesaplamaları için son elemanın indeksini alıyorum
 }
 
-/* Bu fonksiyona tek elemanlı liste gelmemeli
+/* 
 median üstü (yukarı kayacaklar) 1 altı 0 olsun (aşağı kayacaklar)
 r ve rr maliyeti eşit durumlar 3 döndürsün */
 int r_or_rr(t_plate **lst, int my_index)

@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:09:36 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 18:43:35 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/24 13:53:45 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,20 @@ t_plate *my_target_in_a(int value, t_plate **sa)
 	if (target == NULL) //Yani value'dan büyük bir sayı bulunamamış
 		target = find_min(sa);
 	return (target);
+}
+
+t_plate	*find_min_cost(t_plate **lst)
+{
+	t_plate	*iter;
+	t_plate	*min_cost;
+	
+	iter = (*lst);
+	min_cost = (*lst);
+	while(iter)
+	{
+		if(iter->cost < min_cost->cost)	//Eğer yeni gösterilen değer küçükse halihazırda min_plate'te olan değerden
+			min_cost = iter;			//Yeni min değeri bu
+		iter = iter->next;
+	}
+	return (min_cost); //min değere sahip tabağa işaret eden pointerı döndür
 }

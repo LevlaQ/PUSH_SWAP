@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/24 13:43:21 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/24 19:49:02 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ int		is_sorted_from_min(t_plate **sa);
 int		get_end_value(t_plate **lst);
 int		ami_inorder_a(t_plate **sa);
 t_plate	*find_max(t_plate **lst);
-int		is_sorted_from_max(t_plate **sb);
-int		ami_inorder_b(t_plate **sb);
 int		m_last_index(t_plate **lst);
 int 	r_or_rr(t_plate **lst, int my_index);
 int		how_many_moves(t_plate **lst, t_plate **plate);
@@ -82,5 +80,9 @@ void	do_rb(int count, t_plate **sb);
 void	do_rrb(int count, t_plate **sb);
 void	do_rr(int count, t_plate **sa,t_plate **sb);
 void	do_rrr(int count, t_plate **sa,t_plate **sb);
+t_plate	*find_min_cost(t_plate **lst);
+void	sort_me_if_im_not(t_plate **sa);
+void calc_acost_and_ptb(t_plate **sa, t_plate **sb);
+void calc_bcost_and_pta(t_plate **sa, t_plate **sb);
 
 #endif 
