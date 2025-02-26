@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:18:37 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/24 15:14:23 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/26 15:20:43 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,4 @@ int	how_many_moves(t_plate **lst, t_plate **plate)
 			return((median_i - ((*plate)->index - median_i)));
 	}
 }
+

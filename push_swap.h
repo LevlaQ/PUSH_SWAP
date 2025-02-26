@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/24 19:49:02 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/26 15:23:16 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ void	do_rr(int count, t_plate **sa,t_plate **sb);
 void	do_rrr(int count, t_plate **sa,t_plate **sb);
 t_plate	*find_min_cost(t_plate **lst);
 void	sort_me_if_im_not(t_plate **sa);
-void calc_acost_and_ptb(t_plate **sa, t_plate **sb);
-void calc_bcost_and_pta(t_plate **sa, t_plate **sb);
+void	calc_acost_and_ptb(t_plate **sa, t_plate **sb);
+void	calc_bcost_and_pta(t_plate **sa, t_plate **sb);
+void	reset_performs(t_plate **lst);
 
 #endif 

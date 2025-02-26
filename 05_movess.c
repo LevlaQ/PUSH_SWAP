@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:36:19 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:10:46 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/26 17:24:06 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	push_to_b(t_plate **sa, t_plate **sb)
 	(*sb) = tmp;
 	index_the_stack(sa);
 	index_the_stack(sb);
+	reset_performs(sa);
+	reset_performs(sb);
 }
 
 //listenin ilk elemanı son eleman oluyor, listedeki her şey bir yukarı kayıyor

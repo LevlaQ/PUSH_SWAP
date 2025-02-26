@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:18:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:10:41 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/26 17:23:47 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	push_to_a(t_plate **sa, t_plate **sb)
 	(*sa) = tmp;
 	index_the_stack(sa);
 	index_the_stack(sb);
+	reset_performs(sa);
+	reset_performs(sb);
 }
 
 //Liste son elemanı listenin ilk elemanı olacak

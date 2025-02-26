@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 12:49:46 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 19:32:25 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/26 18:21:05 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@ void	perform_1(t_plate **p, int mvs_a, int mvs_b)
 	{
 		(*p)->perform_rrr = mvs_a;
 		(*p)->perform_rrb = (mvs_b - mvs_a);
+		(*p)->cost = mvs_b;
 	}		
 	else
 	{
 		(*p)->perform_rrr = mvs_b;
 		(*p)->perform_rra = (mvs_a - mvs_b);
+		(*p)->cost = mvs_a;
 	}
+	
+	printf("Perform1 is done, mvs_a : %d, mvs_b : %d\n", mvs_a, mvs_b);
 }
 
 // 1 1 (rr) durumunda yapılacak hamleleri struct'a yazacak fonksiyon
@@ -34,12 +38,15 @@ void	perform_2(t_plate **p, int mvs_a, int mvs_b)
 	{
 		(*p)->perform_rr = mvs_a;
 		(*p)->perform_rb = (mvs_b - mvs_a);
+		(*p)->cost = mvs_b;
 	}		
 	else
 	{
 		(*p)->perform_rr = mvs_b;
 		(*p)->perform_ra = (mvs_a - mvs_b);
+		(*p)->cost = mvs_a;
 	}
+	printf("Perform2 is done, mvs_a : %d, mvs_b : %d\n", mvs_a, mvs_b);
 }
 
 //1 0 farklı yönlere gitmeleri kesin durumunda yapılacak hamleleri struct'a yazacak fonksiyon
@@ -53,6 +60,8 @@ void	perform_3(t_plate **p, int mvs_a, int mvs_b, int drctn_a, int drctn_b)
 		(*p)->perform_rb = mvs_b;
 	else
 		(*p)->perform_rrb = mvs_b;
+	(*p)->cost = mvs_a + mvs_b;
+	printf("Perform3 is done, mvs_a : %d, mvs_b : %d, drctn_a: %d, drctn_b: %d\n", mvs_a, mvs_b, drctn_a, drctn_b);
 }
 
 //3 0/0 3 durumları için rrr gibi çalışacak bir fonksiyon
@@ -63,12 +72,15 @@ void	perform_4(t_plate **p, int mvs_a, int mvs_b)
 	{
 		(*p)->perform_rrr = mvs_a;
 		(*p)->perform_rrb = (mvs_b - mvs_a);
+		(*p)->cost = mvs_b;
 	}
 	else
 	{
 		(*p)->perform_rrr = mvs_b;
 		(*p)->perform_rra = (mvs_a - mvs_b);
+		(*p)->cost = mvs_a;
 	}
+	printf("Perform4 is done, mvs_a : %d, mvs_b : %d\n", mvs_a, mvs_b);
 }
 
 //3 3/3 1 durumlaru için rr gibi çalışacak bir fonksiyon
@@ -78,10 +90,13 @@ void	perform_5(t_plate **p, int mvs_a, int mvs_b)
 	{
 		(*p)->perform_rr = mvs_a;
 		(*p)->perform_rb = (mvs_b - mvs_a);
+		(*p)->cost = mvs_b;
 	}		
 	else
 	{
 		(*p)->perform_rr = mvs_b;
 		(*p)->perform_ra = (mvs_a - mvs_b);
+		(*p)->cost = mvs_a;
 	}
+	printf("Perform5 is done, mvs_a : %d, mvs_b : %d\n", mvs_a, mvs_b);
 }
