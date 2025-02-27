@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:31:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 17:24:07 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:44:17 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ t_plate	*find_min(t_plate **lst)
 {
 	t_plate	*iter;
 	t_plate	*min_plate;
-	
+
 	iter = (*lst);
 	min_plate = (*lst);
-	while(iter)
+	while (iter)
 	{
-		if(iter->value < min_plate->value)
+		if (iter->value < min_plate->value)
 			min_plate = iter;
 		iter = iter->next;
 	}
@@ -40,11 +40,11 @@ t_plate	*find_min(t_plate **lst)
 int	is_sorted_from_min(t_plate **sa)
 {
 	t_plate	*iter;
-	
+
 	iter = (*sa);
-	while(iter->next)
+	while (iter->next)
 	{
-		if(iter->value > iter->next->value)
+		if (iter->value > iter->next->value)
 			return (0);
 		iter = iter->next;
 	}
@@ -60,15 +60,15 @@ int	get_end_value(t_plate **lst)
 	t_plate	*iter;
 
 	iter = (*lst);
-	while(iter->next)
+	while (iter->next)
 		iter = iter->next;
-	return(iter->value);
+	return (iter->value);
 }
 
 /*
  * Checks if stack A is circularly sorted.
  * - First, checks if the stack is already sorted from the minimum value.
- * - If sorted, verifies circular ordering by ensuring the last value is 
+ * - If sorted, verifies circular ordering by ensuring the last value is
  *   smaller than the first.
  * - Returns 1 if the stack is circularly sorted, otherwise returns 0.
  */
@@ -76,8 +76,8 @@ int	ami_inorder_a(t_plate **sa)
 {
 	t_plate	*iter;
 	int		index_min;
-	
-	if(!(*sa) || !((*sa)->next))
+
+	if (!(*sa) || !((*sa)->next))
 		return (1);
 	iter = find_min(sa);
 	index_min = iter->index;
@@ -88,9 +88,10 @@ int	ami_inorder_a(t_plate **sa)
 	iter = (*sa);
 	if (iter->value < get_end_value(sa))
 		return (0);
-	while((iter->index != index_min))
+	while ((iter->index != index_min))
 	{
-		if((iter->value > iter->next->value) && (iter->next->index != index_min))
+		if ((iter->value > iter->next->value)
+			&& (iter->next->index != index_min))
 			return (0);
 		iter = iter->next;
 	}
@@ -105,12 +106,12 @@ t_plate	*find_max(t_plate **lst)
 {
 	t_plate	*iter;
 	t_plate	*max_plate;
-	
+
 	iter = (*lst);
 	max_plate = (*lst);
-	while(iter)
+	while (iter)
 	{
-		if(iter->value > max_plate->value)
+		if (iter->value > max_plate->value)
 			max_plate = iter;
 		iter = iter->next;
 	}

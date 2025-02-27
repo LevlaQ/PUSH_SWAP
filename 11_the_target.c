@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:09:36 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 17:50:11 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:48:40 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@
  * Returns:
  * - A pointer to the best target node in stack B.
  */
-t_plate *my_target_in_b(int value, t_plate **sb)
+t_plate	*my_target_in_b(int value, t_plate **sb)
 {
 	t_plate	*iter;
-	t_plate *target;
+	t_plate	*target;
 
 	iter = (*sb);
 	target = NULL;
-	while(iter)
+	while (iter)
 	{
-		if((value > iter->value) && (!target || iter->value > target->value))
+		if ((value > iter->value) && (!target || iter->value > target->value))
 			target = iter;
 		iter = iter->next;
 	}
@@ -46,16 +46,16 @@ t_plate *my_target_in_b(int value, t_plate **sb)
  * Returns:
  * - A pointer to the best target node in stack A.
  */
-t_plate *my_target_in_a(int value, t_plate **sa)
+t_plate	*my_target_in_a(int value, t_plate **sa)
 {
 	t_plate	*iter;
-	t_plate *target;
+	t_plate	*target;
 
 	iter = (*sa);
 	target = NULL;
-	while(iter)
+	while (iter)
 	{
-		if((value < iter->value) && (!target || iter->value < target->value))
+		if ((value < iter->value) && (!target || iter->value < target->value))
 			target = iter;
 		iter = iter->next;
 	}
@@ -66,7 +66,8 @@ t_plate *my_target_in_a(int value, t_plate **sa)
 
 /*
  * Finds the node in the stack with the smallest move cost.
- * - Iterates through the stack and returns the node with the minimum `cost` value.
+ *
+	- Iterates through the stack and returns the node with the minimum `cost` value.
  *
  * Returns:
  * - A pointer to the node with the minimum move cost.
@@ -75,12 +76,12 @@ t_plate	*find_min_cost(t_plate **lst)
 {
 	t_plate	*iter;
 	t_plate	*min_cost;
-	
+
 	iter = (*lst);
 	min_cost = (*lst);
-	while(iter)
+	while (iter)
 	{
-		if(iter->cost < min_cost->cost)
+		if (iter->cost < min_cost->cost)
 			min_cost = iter;
 		iter = iter->next;
 	}

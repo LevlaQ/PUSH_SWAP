@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:44:09 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 18:01:21 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:49:26 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	do_rrb(int count, t_plate **sb)
 	int	i;
 
 	i = 0;
-	while(i < count)
+	while (i < count)
 	{
 		r_rotate_b(sb);
 		ft_printf("rrb\n");
@@ -31,16 +31,17 @@ void	do_rrb(int count, t_plate **sb)
 }
 
 /*
- * Performs `rr` (rotate both stack A and B simultaneously) `count` times.
+ * Performs `rr` (rotate both stack A and B simultaneously)
+ * `count` times.
  * - Moves the top element of stack A and B to the bottom.
  * - Prints "rr" for each operation performed.
  */
-void	do_rr(int count, t_plate **sa,t_plate **sb)
+void	do_rr(int count, t_plate **sa, t_plate **sb)
 {
 	int	i;
 
 	i = 0;
-	while(i < count)
+	while (i < count)
 	{
 		rotate_ab(sa, sb);
 		ft_printf("rr\n");
@@ -49,16 +50,17 @@ void	do_rr(int count, t_plate **sa,t_plate **sb)
 }
 
 /*
- * Performs `rrr` (reverse rotate both stack A and B simultaneously) `count` times.
+ * Performs `rrr` (reverse rotate both 
+ *stack A and B simultaneously) `count` times.
  * - Moves the bottom element of stack A and B to the top.
  * - Prints "rrr" for each operation performed.
  */
-void	do_rrr(int count, t_plate **sa,t_plate **sb)
+void	do_rrr(int count, t_plate **sa, t_plate **sb)
 {
 	int	i;
 
 	i = 0;
-	while(i < count)
+	while (i < count)
 	{
 		rr_ab(sa, sb);
 		ft_printf("rrr\n");

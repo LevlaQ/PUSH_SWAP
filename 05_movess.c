@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:36:19 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 17:17:20 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:43:52 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 void	push_to_b(t_plate **sa, t_plate **sb)
 {
 	t_plate	*tmp;
-	
-	if(!(*sa))
+
+	if (!(*sa))
 		return ;
 	tmp = (*sa);
 	(*sa) = (*sa)->next;
-	if(*sa)
+	if (*sa)
 		(*sa)->prev = NULL;
 	tmp->next = (*sb);
 	tmp->prev = NULL;
@@ -49,11 +49,11 @@ void	rotate_a(t_plate **sa)
 	t_plate	*iter;
 	int		tmp;
 
-	if(!(*sa) || !((*sa)->next))
-		return;
+	if (!(*sa) || !((*sa)->next))
+		return ;
 	iter = (*sa);
 	tmp = iter->value;
-	while(iter->next)
+	while (iter->next)
 	{
 		iter->value = iter->next->value;
 		iter = iter->next;
@@ -71,11 +71,11 @@ void	rotate_b(t_plate **sb)
 	t_plate	*iter;
 	int		tmp;
 
-	if(!(*sb) || !((*sb)->next))
-		return;
+	if (!(*sb) || !((*sb)->next))
+		return ;
 	iter = (*sb);
 	tmp = iter->value;
-	while(iter->next)
+	while (iter->next)
 	{
 		iter->value = iter->next->value;
 		iter = iter->next;

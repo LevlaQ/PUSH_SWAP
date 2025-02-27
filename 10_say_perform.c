@@ -6,21 +6,22 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 12:49:46 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 17:38:37 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:47:51 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
- * Handles the case where both A and B move in the reverse rotate (`rrr`) direction.
+ * Handles the case where both A and B move in the reverse 
+ * rotate (`rrr`) direction.
  * - Chooses the smaller move count as the shared `rrr` operation.
  * - Any extra moves in B are handled separately using `rrb`.
  * - Updates `perform_rrr`, `perform_rrb`, and `cost` accordingly.
  */
 void	perform_1(t_plate **p, int mvs_a, int mvs_b)
 {
-	if(mvs_a <= mvs_b)
+	if (mvs_a <= mvs_b)
 	{
 		(*p)->perform_rrr = mvs_a;
 		(*p)->perform_rrb = (mvs_b - mvs_a);
@@ -76,13 +77,15 @@ void	perform_3(t_plate **p, int mvs_a, int mvs_b, int drctn_a, int drctn_b)
 }
 
 /*
- * Handles the case where a move marked as `3` (either direction) needs to act as `rrr`.
- * - Effectively behaves like `perform_1` but is applied when direction is uncertain.
+ * Handles the case where a move marked as `3` (either direction) 
+ * needs to act as `rrr`.
+ *
+ * - Effectively behaves like `perform_1` but is applied 
+ * when direction is uncertain.
  */
 void	perform_4(t_plate **p, int mvs_a, int mvs_b)
 {
-
-	if(mvs_a <= mvs_b)
+	if (mvs_a <= mvs_b)
 	{
 		(*p)->perform_rrr = mvs_a;
 		(*p)->perform_rrb = (mvs_b - mvs_a);
@@ -97,8 +100,11 @@ void	perform_4(t_plate **p, int mvs_a, int mvs_b)
 }
 
 /*
- * Handles the case where a move marked as `3` (either direction) needs to act as `rr`.
- * - Effectively behaves like `perform_2` but is applied when direction is uncertain.
+
+ * Handles the case where a move marked as `3` (either direction) 
+ * needs to act as `rr`.
+ *	- Effectively behaves like `perform_2` but is applied when 
+ * direction is uncertain.
  */
 void	perform_5(t_plate **p, int mvs_a, int mvs_b)
 {

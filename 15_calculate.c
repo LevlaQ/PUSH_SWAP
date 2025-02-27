@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:31:44 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 18:00:39 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:50:15 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@
 void	calc_acost_and_ptb(t_plate **sa, t_plate **sb)
 {
 	t_plate	*iter_a;
-	t_plate *target;
+	t_plate	*target;
 	t_plate	*min_cost;
-	
-	while(!ami_inorder_a(sa))
+
+	while (!ami_inorder_a(sa))
 	{
-		if(!(*sb))
+		if (!(*sb))
 		{
 			push_to_b(sa, sb);
 			ft_printf("pb\n");
 		}
 		iter_a = (*sa);
-		while(iter_a)
+		while (iter_a)
 		{
 			target = my_target_in_b(iter_a->value, sb);
 			cost_perf_a(sa, sb, &iter_a, &target);
@@ -46,7 +46,6 @@ void	calc_acost_and_ptb(t_plate **sa, t_plate **sb)
 	}
 }
 
-
 /*
  * Moves elements from stack B back to stack A after stack A is sorted.
  * - Ensures that elements are placed in their correct position in A.
@@ -55,16 +54,16 @@ void	calc_acost_and_ptb(t_plate **sa, t_plate **sb)
 void	calc_bcost_and_pta(t_plate **sa, t_plate **sb)
 {
 	t_plate	*iter_b;
-	t_plate *target;
+	t_plate	*target;
 	t_plate	*min_cost;
-	
-	while(*sb)
+
+	while (*sb)
 	{
 		iter_b = (*sb);
-		while(iter_b)
+		while (iter_b)
 		{
 			target = my_target_in_a(iter_b->value, sa);
-			cost_perf_b(sa, sb,  &target, &iter_b);
+			cost_perf_b(sa, sb, &target, &iter_b);
 			iter_b = iter_b->next;
 		}
 		min_cost = find_min_cost(sb);
@@ -84,9 +83,9 @@ void	calc_bcost_and_pta(t_plate **sa, t_plate **sb)
 void	reset_performs(t_plate **lst)
 {
 	t_plate	*iter;
-	
+
 	iter = (*lst);
-	while(iter)
+	while (iter)
 	{
 		iter->perform_rr = 0;
 		iter->perform_rrr = 0;

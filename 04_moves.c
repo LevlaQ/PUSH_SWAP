@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:18:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 17:14:15 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:38:20 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 void	push_to_a(t_plate **sa, t_plate **sb)
 {
 	t_plate	*tmp;
-	
-	if(!(*sb))
+
+	if (!(*sb))
 		return ;
 	tmp = (*sb);
 	(*sb) = (*sb)->next;
@@ -48,8 +48,8 @@ void	r_rotate_a(t_plate **sa)
 {
 	t_plate	*iter;
 	int		tmp;
-	
-	if(!(*sa) || !((*sa)->next))
+
+	if (!(*sa) || !((*sa)->next))
 		return ;
 	iter = (*sa);
 	while (iter->next)
@@ -72,8 +72,8 @@ void	r_rotate_b(t_plate **sb)
 {
 	t_plate	*iter;
 	int		tmp;
-	
-	if(!(*sb) || !((*sb)->next))
+
+	if (!(*sb) || !((*sb)->next))
 		return ;
 	iter = (*sb);
 	while (iter->next)
@@ -96,4 +96,3 @@ void	rr_ab(t_plate **sa, t_plate **sb)
 	r_rotate_a(sa);
 	r_rotate_b(sb);
 }
-

@@ -6,35 +6,35 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:23 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:28:20 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:36:58 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* 
+/*
  * Checks if the input contains only valid characters.
  * - Allowed: digits (0-9) and '-' sign (only at the beginning of a number).
  * - Invalid cases: "32-", "--3", "003", etc.
  */
 int	chk_chrctrs(char **el)
 {
-	int		i;
-	int		j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
 	while (el[i])
 	{
 		j = 0;
-		while(el[i][j])
+		while (el[i][j])
 		{
-			if((el[i][j] != '-') && !ft_isdigit(el[i][j]) && (el[i][j] != '+'))
+			if ((el[i][j] != '-') && !ft_isdigit(el[i][j]) && (el[i][j] != '+'))
 				return (0);
-			else if ((el[i][0] == '-' && el[i][1] == '\0')
-					|| (el[i][0] == '+' && el[i][1] == '\0'))
-							return (0);
-			else if((j != 0 && el[i][j] == '-') || (j != 0 && el[i][j] == '+'))
+			else if ((el[i][0] == '-' && el[i][1] == '\0') || (el[i][0] == '+'
+					&& el[i][1] == '\0'))
+				return (0);
+			else if ((j != 0 && el[i][j] == '-') || (j != 0 && el[i][j] == '+'))
 				return (0);
 			j++;
 		}
@@ -43,7 +43,7 @@ int	chk_chrctrs(char **el)
 	return (1);
 }
 
-/* 
+/*
  * General integer validation.
  * - Calls chk_minmax() to check if numbers are within int limits.
  * - Calls chk_if_repeats() to detect duplicate numbers.
@@ -55,7 +55,7 @@ int	chk_integers_general(char **el)
 		write(2, "Error(Integer overflow)\n", 26);
 		return (0);
 	}
-	if(!chk_if_repeats(el))
+	if (!chk_if_repeats(el))
 	{
 		write(2, "Error(Integer repeats)\n", 24);
 		return (0);
@@ -63,7 +63,7 @@ int	chk_integers_general(char **el)
 	return (1);
 }
 
-/* 
+/*
  * Checks if numbers are within integer limits.
  * - INT_MAX:  2147483647
  * - INT_MIN: -2147483648
@@ -73,16 +73,16 @@ int	chk_minmax(char **el)
 	int	i;
 
 	i = 0;
-	while(el[i])
+	while (el[i])
 	{
-		if(!modified_atoi_limits(el[i]))
+		if (!modified_atoi_limits(el[i]))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-/* 
+/*
  * A custom atoi function with integer limit checking.
  * - Returns 0 if the number exceeds int range.
  * - Handles negative numbers correctly.
@@ -123,16 +123,16 @@ int	modified_atoi_limits(char *str)
  */
 int	chk_if_repeats(char **el)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
-	while(el[i])
+	while (el[i])
 	{
 		j = 0;
-		while(el[j])
+		while (el[j])
 		{
-			if(i != j && ft_atoi(el[i]) == ft_atoi(el[j]))
+			if (i != j && ft_atoi(el[i]) == ft_atoi(el[j]))
 				return (0);
 			j++;
 		}
@@ -140,4 +140,3 @@ int	chk_if_repeats(char **el)
 	}
 	return (1);
 }
-

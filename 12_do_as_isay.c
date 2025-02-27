@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:45:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 18:01:38 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 19:39:30 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@
  */
 void	what_isit(t_plate **plate, t_plate **sa, t_plate **sb)
 {
-	if((*plate)->perform_rr != 0)
+	if ((*plate)->perform_rr != 0)
 		do_rr((*plate)->perform_rr, sa, sb);
-	if((*plate)->perform_rrr != 0)
+	if ((*plate)->perform_rrr != 0)
 		do_rrr((*plate)->perform_rrr, sa, sb);
-	if((*plate)->perform_ra != 0)
+	if ((*plate)->perform_ra != 0)
 		do_ra((*plate)->perform_ra, sa);
-	if((*plate)->perform_rra != 0)
+	if ((*plate)->perform_rra != 0)
 		do_rra((*plate)->perform_rra, sa);
-	if((*plate)->perform_rb != 0)
+	if ((*plate)->perform_rb != 0)
 		do_rb((*plate)->perform_rb, sb);
-	if((*plate)->perform_rrb != 0)
+	if ((*plate)->perform_rrb != 0)
 		do_rrb((*plate)->perform_rrb, sb);
 }
 
@@ -44,7 +44,7 @@ void	do_ra(int count, t_plate **sa)
 	int	i;
 
 	i = 0;
-	while(i < count)
+	while (i < count)
 	{
 		rotate_a(sa);
 		ft_printf("ra\n");
@@ -62,7 +62,7 @@ void	do_rra(int count, t_plate **sa)
 	int	i;
 
 	i = 0;
-	while(i < count)
+	while (i < count)
 	{
 		r_rotate_a(sa);
 		ft_printf("rra\n");
@@ -80,7 +80,7 @@ void	do_rb(int count, t_plate **sb)
 	int	i;
 
 	i = 0;
-	while(i < count)
+	while (i < count)
 	{
 		rotate_b(sb);
 		ft_printf("rb\n");
