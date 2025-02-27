@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 19:12:18 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:10:23 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 16:53:48 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,26 @@ void	free_strings(char **strings)
 	if (!strings)
 		return;
 	i = 0;
-	while (strings[i]) // Alt stringleri serbest bırak
+	while (strings[i])
 	{
 		free(strings[i]);
 		i++;
 	}
-	free(strings); // Son olarak ana pointer'ı serbest bırak
+	free(strings);
+}
+
+void	free_stack_a(t_plate **sa)
+{
+	t_plate *temp;
+
+	if (!sa || !(*sa))
+		return ;
+
+	while (*sa)
+	{
+		temp = (*sa)->next;
+		free(*sa);
+		*sa = temp;
+	}
+	*sa = NULL;
 }

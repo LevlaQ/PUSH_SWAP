@@ -6,28 +6,19 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:00:45 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 19:37:23 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:27:29 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	cost(int mvs_a, int mvs_b, int drctn_a, int drctn_b)
-{
-	if((drctn_a + drctn_b) == 0 || (drctn_a + drctn_b) == 2
-		|| (drctn_a + drctn_b) == 3 || (drctn_a + drctn_b) == 4
-		|| (drctn_a + drctn_b) == 6) //İkisi de aynı yöndedir
-	{
-		if(mvs_a >= mvs_b) //Birbirlerine eşit olmaları ihtimali de var
-			return (mvs_a); //A daha büyükse maliyet odur
-		else
-			return (mvs_b); //B daha büyükse maliyet odur
-	}
-	else //İkisi farklı yönlerdedir
-		return (mvs_a + mvs_b);
-}
-
-//Performansların tamamı A listesi taşlarına yazılıyor, boş listeler göndermediğine emin ol!!!
+/*
+ * Calculates the cost and optimal moves for transferring elements from stack A to B.
+ * - For each element in stack A, finds its target position in stack B.
+ * - Computes the number of moves required to reach the target position.
+ * - Updates the `perform_rr`, `perform_rrr`, `perform_ra`, `perform_rra`, 
+ *   `perform_rb`, and `perform_rrb` values for each element.
+ */
 void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 {
 	int	mvs_a;
@@ -53,7 +44,12 @@ void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 		return ;
 }
 
-//Performansların tamamı B listesi taşlarına yazılıyor boş listeler göndermediğine emin ol!!!
+/*
+ * Calculates the cost and optimal moves for transferring elements from stack B to A.
+ * - Similar to `cost_perf_a`, but for elements in stack B.
+ * - Finds the target position of each element in stack A.
+ * - Computes and updates the necessary moves for optimal positioning.
+ */
 void	cost_perf_b(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 {
 	int	mvs_a;

@@ -6,14 +6,18 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:54:49 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/24 15:26:25 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:56:07 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//a listesi küçükten büyüğe sıralı mı kontrolü, ami circular'dan geçmiş yani dairesel olduğunu biliyorum
-//Bu fonksiyon ancak programın sonunda B listesi tamamen boşaltıldığında çalıştırılmalı
+/*
+ * Ensures stack A is sorted by rotating the smallest value to the top.
+ * - This function should be called only when stack B is empty.
+ * - If the minimum value is already at the top, nothing is done.
+ * - Otherwise, rotates (`ra`) or reverse rotates (`rra`) stack A to position the minimum at the top.
+ */
 void	sort_me_if_im_not(t_plate **sa)
 {
 	t_plate *min_value;

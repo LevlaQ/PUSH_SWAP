@@ -6,12 +6,18 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:45:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/24 13:45:24 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 18:01:38 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+ * Executes the appropriate move commands for the given plate.
+ * - Calls rotation or reverse rotation functions based on stored values.
+ * - Uses `perform_rr`, `perform_rrr`, `perform_ra`, `perform_rra`,
+ *   `perform_rb`, and `perform_rrb` values from the plate struct.
+ */
 void	what_isit(t_plate **plate, t_plate **sa, t_plate **sb)
 {
 	if((*plate)->perform_rr != 0)
@@ -28,6 +34,11 @@ void	what_isit(t_plate **plate, t_plate **sa, t_plate **sb)
 		do_rrb((*plate)->perform_rrb, sb);
 }
 
+/*
+ * Performs `ra` (rotate stack A) `count` times.
+ * - Moves the top element to the bottom of stack A.
+ * - Prints "ra" for each operation performed.
+ */
 void	do_ra(int count, t_plate **sa)
 {
 	int	i;
@@ -36,11 +47,16 @@ void	do_ra(int count, t_plate **sa)
 	while(i < count)
 	{
 		rotate_a(sa);
-		printf("ra\n");
+		ft_printf("ra\n");
 		i++;
 	}
 }
 
+/*
+ * Performs `rra` (reverse rotate stack A) `count` times.
+ * - Moves the bottom element to the top of stack A.
+ * - Prints "rra" for each operation performed.
+ */
 void	do_rra(int count, t_plate **sa)
 {
 	int	i;
@@ -49,11 +65,16 @@ void	do_rra(int count, t_plate **sa)
 	while(i < count)
 	{
 		r_rotate_a(sa);
-		printf("rra\n");
+		ft_printf("rra\n");
 		i++;
 	}
 }
 
+/*
+ * Performs `rb` (rotate stack B) `count` times.
+ * - Moves the top element to the bottom of stack B.
+ * - Prints "rb" for each operation performed.
+ */
 void	do_rb(int count, t_plate **sb)
 {
 	int	i;
@@ -62,7 +83,7 @@ void	do_rb(int count, t_plate **sb)
 	while(i < count)
 	{
 		rotate_b(sb);
-		printf("rb\n");
+		ft_printf("rb\n");
 		i++;
 	}
 }

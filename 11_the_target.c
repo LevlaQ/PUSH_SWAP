@@ -6,14 +6,20 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:09:36 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/24 13:53:45 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:50:11 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Kendisinden küçük en büyüy sayıyı bulmalı (dairesel sıralama)
-//Eğer B'de eleman varsa bu fonksiyonu çağır, kontrolünü çağırdığın yerde yap!!!
+/*
+ * Finds the best target position for a given value in stack B.
+ * - The target is the **largest number in B that is smaller than `value`**.
+ * - If no such number exists, the function returns the maximum value in B.
+ *
+ * Returns:
+ * - A pointer to the best target node in stack B.
+ */
 t_plate *my_target_in_b(int value, t_plate **sb)
 {
 	t_plate	*iter;
@@ -27,13 +33,19 @@ t_plate *my_target_in_b(int value, t_plate **sb)
 			target = iter;
 		iter = iter->next;
 	}
-	if (target == NULL) //Yani value'dan küçük bir sayı bulunamamış
+	if (target == NULL)
 		target = find_max(sb);
 	return (target);
 }
 
-//Eğer sadece A'da eleman varsa bu fonksiyonu çağır
-//Kendisinden büyük en küçük sayıyı bulmalı
+/*
+ * Finds the best target position for a given value in stack A.
+ * - The target is the **smallest number in A that is larger than `value`**.
+ * - If no such number exists, the function returns the minimum value in A.
+ *
+ * Returns:
+ * - A pointer to the best target node in stack A.
+ */
 t_plate *my_target_in_a(int value, t_plate **sa)
 {
 	t_plate	*iter;
@@ -47,11 +59,18 @@ t_plate *my_target_in_a(int value, t_plate **sa)
 			target = iter;
 		iter = iter->next;
 	}
-	if (target == NULL) //Yani value'dan büyük bir sayı bulunamamış
+	if (target == NULL)
 		target = find_min(sa);
 	return (target);
 }
 
+/*
+ * Finds the node in the stack with the smallest move cost.
+ * - Iterates through the stack and returns the node with the minimum `cost` value.
+ *
+ * Returns:
+ * - A pointer to the node with the minimum move cost.
+ */
 t_plate	*find_min_cost(t_plate **lst)
 {
 	t_plate	*iter;
@@ -61,9 +80,9 @@ t_plate	*find_min_cost(t_plate **lst)
 	min_cost = (*lst);
 	while(iter)
 	{
-		if(iter->cost < min_cost->cost)	//Eğer yeni gösterilen değer küçükse halihazırda min_plate'te olan değerden
-			min_cost = iter;			//Yeni min değeri bu
+		if(iter->cost < min_cost->cost)
+			min_cost = iter;
 		iter = iter->next;
 	}
-	return (min_cost); //min değere sahip tabağa işaret eden pointerı döndür
+	return (min_cost);
 }

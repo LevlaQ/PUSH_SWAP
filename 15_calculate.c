@@ -6,80 +6,81 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:31:44 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/26 18:13:53 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 18:00:39 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//A dolu mu boş mu kontrolü yapmıyorum çünkü error'lar onu kontrol ediyoru
-//A daiesel sıralı olana kadar bu fonksiyonum çalışmaya devam etti
-//A'nın dairesel sıralı olduğu senaryoda bu fonksiyonun çalışmaması lazım
+/*
+ * Moves elements from stack A to stack B until stack A is circularly sorted.
+ * - If stack B is empty, pushes the first element from A to B.
+ * - For each element in A, finds the best target position in B.
+ * - Calculates movement costs and performs the necessary operations.
+ */
 void	calc_acost_and_ptb(t_plate **sa, t_plate **sb)
 {
 	t_plate	*iter_a;
 	t_plate *target;
 	t_plate	*min_cost;
 	
-	while(!ami_inorder_a(sa)) //A dairesel sıralı olmadığı sürece
+	while(!ami_inorder_a(sa))
 	{
-		if(!(*sb)) //Eğer be listesi boş ise
+		if(!(*sb))
 		{
-			push_to_b(sa, sb); //İçerisine hemen bir eleman at
-			printf("pb\n");
+			push_to_b(sa, sb);
+			ft_printf("pb\n");
 		}
 		iter_a = (*sa);
-		while(iter_a) //Liste sonuna varmadığım sürece
+		while(iter_a)
 		{
-			target = my_target_in_b(iter_a->value, sb); //A'daki mevcut taşım için B'deki hedef taşını bul
-			cost_perf_a(sa, sb, &iter_a, &target); //Mavcut ve hedef taş bilgilerinden maliyet ve performans hesabı yap
+			target = my_target_in_b(iter_a->value, sb);
+			cost_perf_a(sa, sb, &iter_a, &target);
 			iter_a = iter_a->next;
 		}
-		min_cost = find_min_cost(sa); //Yukarıda girilen bilgilere göre minimum maliyeti içeren taşı bul
-		what_isit(&min_cost, sa, sb); //Taşta yazan hamleleri gerçekleştir, o hamleler o fonksiyonların içinde ekrana yazılacak
-		push_to_b(sa, sb); //İlgili rotate'ler ile ilgili taşlar tepeye taşındı, şimdi pushlama vakti
-		printf("pb\n");
+		min_cost = find_min_cost(sa);
+		what_isit(&min_cost, sa, sb);
+		push_to_b(sa, sb);
+		ft_printf("pb\n");
 		iter_a = (*sa);
 	}
 }
 
 
-//B'den A'ya pushlama senaryosunda A'da eleman olmama ihtimali olmayacak
-//B'de eleman olmaması durumunda bu fonksiyonun çalışmaması lazım
+/*
+ * Moves elements from stack B back to stack A after stack A is sorted.
+ * - Ensures that elements are placed in their correct position in A.
+ * - Continues until stack B is empty.
+ */
 void	calc_bcost_and_pta(t_plate **sa, t_plate **sb)
 {
 	t_plate	*iter_b;
 	t_plate *target;
 	t_plate	*min_cost;
 	
-	while(*sb) //B'de eleman kalmayana kadar, çünkü B'de ve A'da her şey dairesel sıralı olmalı bu noktada
+	while(*sb)
 	{
 		iter_b = (*sb);
-		while(iter_b) //Liste sonuna varmadığım sürece
+		while(iter_b)
 		{
-			printf("Find target for: %d\n", iter_b->value);
-			target = my_target_in_a(iter_b->value, sa); //B'deki mevcut taşım için A'daki hedef taşını bul
-			printf("My target is : %d\n", target->value);
-			cost_perf_b(sa, sb,  &target, &iter_b); //Mavcut ve hedef taş bilgilerinden maliyet ve performans hesabı yap ve B'ye yaz
-			printf("My cost is: %d\n\n", iter_b->cost);
+			target = my_target_in_a(iter_b->value, sa);
+			cost_perf_b(sa, sb,  &target, &iter_b);
 			iter_b = iter_b->next;
 		}
-		min_cost = find_min_cost(sb); //Yukarıda girilen bilgilere göre minimum maliyeti içeren taşı bul
-		printf("Min_cost value is: %d\n", min_cost->value);
-		printf("Perform rr: %d\n", min_cost->perform_rr);
-		printf("Perfrom rrr: %d\n", min_cost->perform_rrr);
-		printf("Perform ra: %d\n", min_cost->perform_ra);
-		printf("Perfrom rra : %d\n", min_cost->perform_rra);
-		printf("Perform rb : %d\n", min_cost->perform_rb);
-		printf("Perform rrb : %d\n", min_cost->perform_rrb);
-		what_isit(&min_cost, sa, sb); //Taşta yazan hamleleri gerçekleştir, o hamleler o fonksiyonların içinde ekrana yazılacak
-		push_to_a(sa, sb); //İlgili rotate'ler ile ilgili taşlar tepeye taşındı, şimdi pushlama vakti
-		printf("pa\n");
+		min_cost = find_min_cost(sb);
+		what_isit(&min_cost, sa, sb);
+		push_to_a(sa, sb);
+		ft_printf("pa\n");
 		iter_b = (*sb);
 		reset_performs(&iter_b);
 	}
 }
 
+/*
+ * Moves elements from stack B back to stack A after stack A is sorted.
+ * - Ensures that elements are placed in their correct position in A.
+ * - Continues until stack B is empty.
+ */
 void	reset_performs(t_plate **lst)
 {
 	t_plate	*iter;

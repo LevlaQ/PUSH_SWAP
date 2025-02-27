@@ -6,20 +6,25 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/23 14:10:08 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 16:05:17 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* 
+ * Main error handling function.
+ * - Checks if the argument count is valid.
+ * - Calls appropriate error functions based on input type.
+ */
 int	error_main(int argc, char **argv)
 {
 	if (argc < 2)
 	{
-		printf("Error(No input provided)\n");
+		write(2, "Error(No input provided)\n", 26);
 		return (0);
 	}
-	if (argc == 2) //string durumu burada geçerli
+	if (argc == 2)
 	{
 		if(!error_two_args(argv))
 			return (0);
@@ -32,55 +37,68 @@ int	error_main(int argc, char **argv)
 	return (1);
 }
 
+/* 
+ * Checks if a single argument (string format) is valid.
+ * - Splits the string into separate numbers.
+ * - Validates character rules, number limits, and duplicates.
+ */
 int error_two_args(char **argv)
 {
 	char **el;
 
-	if (!chk_if_string(argv[1])) // Eğer argüman bir string değilse, tek bir sayı olarak kabul edilecek
-		return (printf("Error(There is only one integer)\n"), 0);
+	if (!chk_if_string(argv[1]))
+		return (write(2, "Error(There is only one integer)\n", 34), 0);
 	if (argv[1][0] == '\0' || !argv[1])
-		return (printf("Error(No input provided)\n"), 0);
-	if (!chk_spaces(argv[1])) // Bir string var, şimdi boşluk kuralını kontrol ediyoruz
-		return (printf("Error(There are multiple spaces)\n"), 0);
-	el = ft_split(argv[1], ' ');// Stringi boşluklara göre ayırıyoruz
-	if (!el || !el[0])  // ft_split'in başarısız veya boş bir dizi döndürme ihtimali kontrol ediliyor
-		return ( printf("Error(ft_split failed)\n"), 0);
-	if (!chk_chrctrs(el))  // Karakter kontrolü
-		return (printf("Error(Forbidden chars!)\n"), free_strings(el), 0);
-	if (!chk_integers_general(el))  // Sayıların geçerliliğini kontrol ediyoruz
+		return (write(2, "Error(No input provided)\n", 26), 0);
+	if (!chk_spaces(argv[1]))
+		return (write(2, "Error(There are multiple spaces)\n", 34), 0);
+	el = ft_split(argv[1], ' ');
+	if (!el || !el[0])
+		return ( write(2, "Error(ft_split failed)\n", 24), 0);
+	if (!chk_chrctrs(el))
+		return (write(2, "Error(Forbidden chars!)\n", 25), free_strings(el), 0);
+	if (!chk_integers_general(el))
 		return (free_strings(el), 0);
 	return (free_strings(el), 1);
 }
 
-
+/* 
+ * Checks if multiple arguments (space-separated) are valid.
+ * - Ensures that all arguments follow integer format.
+ * - Prevents mixed syntax usage.
+ */
 int error_multi_args(char **argv)
 {
 	int	i;
 
 	i = 0;
-	while (argv[i])// Tüm argümanları tek tek kontrol et
+	while (argv[i])
 	{
-		if (chk_if_string(argv[i]))// Argüman bir string formatında mı? (Bu durumda karışık syntax kullanımı hatalı olur)
+		if (chk_if_string(argv[i]))
 		{
-			printf("Error(Can't use mixed syntax)\n");
+			write(2, "Error(Can't use mixed syntax)\n", 31);
 			return (0);
 		}
 		i++;
 	}
-	argv = argv + 1; //a.out gönderilmesin diye
-	if (!chk_chrctrs(argv))// Argümandaki karakterler doğru mu? İlk hatada çıkış yap
+	argv = argv + 1;
+	if (!chk_chrctrs(argv))
 	{
-		printf("Error(There are forbidden chars)\n");
+		write(2, "Error(There are forbidden chars)\n", 34);
 		return (0);
 	}
-	if (!chk_integers_general(argv))// Tüm argümanlar karakter kontrolünden geçti, şimdi sayı kontrolü yap
+	if (!chk_integers_general(argv))
 	{
 		return (0);
 	}
-	return (1);// Tüm kontroller başarılı, 1 döndür
+	return (1);
 }
 
-
+/* 
+ * Checks if an argument is a string (multiple numbers in a single argument).
+ * - Uses ft_split() to split the input.
+ * - If splitting results in multiple elements, it's a string.
+ */
 int	chk_if_string(char *str)
 {
 	char	**el;
@@ -92,15 +110,19 @@ int	chk_if_string(char *str)
 	i = 0;
 	while (el[i])
 		i++;
-	if(i == 1) // Eğer ft_split sonucunda tek bir eleman elde edilmişse argüman string değildir
+	if(i == 1)
 	{
 		free_strings(el);
 		return (0);
 	}
 	free_strings(el);
-	return (1); //String ise bir döndürür
+	return (1);
 }
 
+/* 
+ * Checks for multiple consecutive spaces in an argument.
+ * - Returns 0 if two or more spaces appear in a row.
+ */
 int	chk_spaces(char *str)
 {
 	int	i;
@@ -108,9 +130,9 @@ int	chk_spaces(char *str)
 	i = 0;
 	while(str[i])
 	{
-		if ((str[i] == ' ') && (str[i + 1] == ' ')) //Birden fazla space olması durumu kontrolü
+		if ((str[i] == ' ') && (str[i + 1] == ' '))
 			return (0);
 		i++;
 	}
-	return (1); //Spaceler düzgün sırada ise 1 döndür
+	return (1);
 }

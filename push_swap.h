@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/26 15:23:16 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 18:02:03 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 
 # include "./Libft/libft.h"
-# include <unistd.h> //*read()* = ssize_t read(int fildes, void *buf, size_t nbyte); *write()* = ssize_t write(int fildes, const void *buf, size_t nbyte);
-# include <stdlib.h> //malloc(); free (); exit() = void exit(int status); 
-# include <stdio.h> // m1 çipte ft_printf çalışmıyor
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_plate
 {
@@ -85,5 +84,6 @@ void	sort_me_if_im_not(t_plate **sa);
 void	calc_acost_and_ptb(t_plate **sa, t_plate **sb);
 void	calc_bcost_and_pta(t_plate **sa, t_plate **sb);
 void	reset_performs(t_plate **lst);
+void	free_stack_a(t_plate **sa);
 
 #endif 

@@ -6,13 +6,18 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:18:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/26 17:23:47 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:14:15 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//b boş ise hiçbir işlem yapmıyor, b'nin ilk elemanını al ve a'ya ata (algoritma başlangıcı için ayrı fonksiyon yazmam gerekecek)
+/*
+ * Moves the top element of stack B to the top of stack A.
+ * - If stack B is empty, does nothing.
+ * - Updates the previous and next pointers accordingly.
+ * - Calls `index_the_stack()` to update indices after the move.
+ */
 void	push_to_a(t_plate **sa, t_plate **sb)
 {
 	t_plate	*tmp;
@@ -24,7 +29,7 @@ void	push_to_a(t_plate **sa, t_plate **sb)
 	if (*sb)
 		(*sb)->prev = NULL;
 	tmp->next = (*sa);
-	tmp->prev = NULL; //Bir de bunsuz kodu denersin
+	tmp->prev = NULL;
 	if (*sa)
 		(*sa)->prev = tmp;
 	(*sa) = tmp;
@@ -34,13 +39,17 @@ void	push_to_a(t_plate **sa, t_plate **sb)
 	reset_performs(sb);
 }
 
-//Liste son elemanı listenin ilk elemanı olacak
+/*
+ * Shifts all elements of stack A down by one position.
+ * - The last element moves to the top.
+ * - If stack A has 0 or 1 element, does nothing.
+ */
 void	r_rotate_a(t_plate **sa)
 {
 	t_plate	*iter;
 	int		tmp;
 	
-	if(!(*sa) || !((*sa)->next)) //Stack boş veya tek elemanlı ise işlem yapma
+	if(!(*sa) || !((*sa)->next))
 		return ;
 	iter = (*sa);
 	while (iter->next)
@@ -54,12 +63,17 @@ void	r_rotate_a(t_plate **sa)
 	iter->value = tmp;
 }
 
+/*
+ * Shifts all elements of stack B down by one position.
+ * - The last element moves to the top.
+ * - If stack B has 0 or 1 element, does nothing.
+ */
 void	r_rotate_b(t_plate **sb)
 {
 	t_plate	*iter;
 	int		tmp;
 	
-	if(!(*sb) || !((*sb)->next)) //Stack boş veya tek elemanlı ise işlem yapma
+	if(!(*sb) || !((*sb)->next))
 		return ;
 	iter = (*sb);
 	while (iter->next)
@@ -73,6 +87,10 @@ void	r_rotate_b(t_plate **sb)
 	iter->value = tmp;
 }
 
+/*
+ * Performs `rra` and `rrb` simultaneously.
+ * - Both stack A and stack B perform reverse rotate.
+ */
 void	rr_ab(t_plate **sa, t_plate **sb)
 {
 	r_rotate_a(sa);
