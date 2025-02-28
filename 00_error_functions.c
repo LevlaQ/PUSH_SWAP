@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 12:21:00 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 12:23:49 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	error_main(int argc, char **argv)
 {
 	if (argc < 2)
 	{
-		write(2, "Error\n", 26);
 		return (0);
 	}
 	if (argc == 2)
