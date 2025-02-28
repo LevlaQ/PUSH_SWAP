@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:23 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 12:05:43 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 12:20:46 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int	chk_integers_general(char **el)
 {
 	if (!chk_minmax(el))
 	{
-		write(2, "Error(Integer overflow)\n", 26);
+		write(2, "Error\n", 5);
 		return (0);
 	}
 	if (!chk_if_repeats(el))
 	{
-		write(2, "Error(Integer repeats)\n", 24);
+		write(2, "Error\n", 5);
 		return (0);
 	}
 	return (1);

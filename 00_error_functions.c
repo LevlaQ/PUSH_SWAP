@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 12:05:39 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 12:21:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	error_main(int argc, char **argv)
 {
 	if (argc < 2)
 	{
-		write(2, "Error(No input provided)\n", 26);
+		write(2, "Error\n", 26);
 		return (0);
 	}
 	if (argc == 2)
@@ -47,16 +47,16 @@ int	error_two_args(char **argv)
 	char	**el;
 
 	if (!chk_if_string(argv[1]))
-		return (write(2, "Error(There is only one integer)\n", 34), 0);
+		return (write(2, "Error\n", 5), 0);
 	if (argv[1][0] == '\0' || !argv[1])
-		return (write(2, "Error(No input provided)\n", 26), 0);
+		return (write(2, "Error\n", 5), 0);
 	if (!chk_spaces(argv[1]))
-		return (write(2, "Error(There are multiple spaces)\n", 34), 0);
+		return (write(2, "Error\n", 5), 0);
 	el = ft_split(argv[1], ' ');
 	if (!el || !el[0])
-		return (write(2, "Error(ft_split failed)\n", 24), 0);
+		return (write(2, "Error\n", 5), 0);
 	if (!chk_chrctrs(el))
-		return (write(2, "Error(Forbidden chars!)\n", 25), free_strings(el), 0);
+		return (write(2, "Error\n", 5), free_strings(el), 0);
 	if (!chk_integers_general(el))
 		return (free_strings(el), 0);
 	return (free_strings(el), 1);
@@ -76,7 +76,7 @@ int	error_multi_args(char **argv)
 	{
 		if (chk_if_string(argv[i]))
 		{
-			write(2, "Error(Can't use mixed syntax)\n", 31);
+			write(2, "Error\n", 5);
 			return (0);
 		}
 		i++;
@@ -84,7 +84,7 @@ int	error_multi_args(char **argv)
 	argv = argv + 1;
 	if (!chk_chrctrs(argv))
 	{
-		write(2, "Error(There are forbidden chars)\n", 34);
+		write(2, "Error\n", 5);
 		return (0);
 	}
 	if (!chk_integers_general(argv))
