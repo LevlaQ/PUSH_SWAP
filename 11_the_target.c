@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:09:36 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:48:40 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
  * Returns:
  * - A pointer to the best target node in stack B.
  */
-t_plate	*my_target_in_b(int value, t_plate **sb)
+t_p	*my_target_in_b(int value, t_p **sb)
 {
-	t_plate	*iter;
-	t_plate	*target;
+	t_p	*iter;
+	t_p	*target;
 
 	iter = (*sb);
 	target = NULL;
@@ -46,10 +46,10 @@ t_plate	*my_target_in_b(int value, t_plate **sb)
  * Returns:
  * - A pointer to the best target node in stack A.
  */
-t_plate	*my_target_in_a(int value, t_plate **sa)
+t_p	*my_target_in_a(int value, t_p **sa)
 {
-	t_plate	*iter;
-	t_plate	*target;
+	t_p	*iter;
+	t_p	*target;
 
 	iter = (*sa);
 	target = NULL;
@@ -72,10 +72,10 @@ t_plate	*my_target_in_a(int value, t_plate **sa)
  * Returns:
  * - A pointer to the node with the minimum move cost.
  */
-t_plate	*find_min_cost(t_plate **lst)
+t_p	*find_min_cost(t_p **lst)
 {
-	t_plate	*iter;
-	t_plate	*min_cost;
+	t_p	*iter;
+	t_p	*min_cost;
 
 	iter = (*lst);
 	min_cost = (*lst);

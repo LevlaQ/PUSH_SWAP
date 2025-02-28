@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:00:45 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:45:20 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * - Updates the `perform_rr`, `perform_rrr`, `perform_ra`, `perform_rra`,
  *   `perform_rb`, and `perform_rrb` values for each element.
  */
-void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
+void	cost_perf_a(t_p **sa, t_p **sb, t_p **a, t_p **b)
 {
 	int	mvs_a;
 	int	mvs_b;
@@ -36,7 +36,7 @@ void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 	else if ((drctn_a + drctn_b) == 2)
 		perform_2(a, mvs_a, mvs_b);
 	else if ((drctn_a + drctn_b) == 1)
-		perform_3(a, mvs_a, mvs_b, drctn_a, drctn_b);
+		perform_3(a, mvs_a, mvs_b, drctn_a);
 	else if ((drctn_a + drctn_b) == 3)
 		perform_4(a, mvs_a, mvs_b);
 	else if (((drctn_a + drctn_b) == 4) || ((drctn_a + drctn_b) == 6))
@@ -52,7 +52,7 @@ void	cost_perf_a(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
  * - Finds the target position of each element in stack A.
  * - Computes and updates the necessary moves for optimal positioning.
  */
-void	cost_perf_b(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
+void	cost_perf_b(t_p **sa, t_p **sb, t_p **a, t_p **b)
 {
 	int	mvs_a;
 	int	mvs_b;
@@ -68,7 +68,7 @@ void	cost_perf_b(t_plate **sa, t_plate **sb, t_plate **a, t_plate **b)
 	else if ((drctn_a + drctn_b) == 2)
 		perform_2(b, mvs_a, mvs_b);
 	else if ((drctn_a + drctn_b) == 1)
-		perform_3(b, mvs_a, mvs_b, drctn_a, drctn_b);
+		perform_3(b, mvs_a, mvs_b, drctn_a);
 	else if ((drctn_a + drctn_b) == 3)
 		perform_4(b, mvs_a, mvs_b);
 	else if (((drctn_a + drctn_b) == 4) || ((drctn_a + drctn_b) == 6))

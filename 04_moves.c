@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:18:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:38:20 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:55:47 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
  * - Updates the previous and next pointers accordingly.
  * - Calls `index_the_stack()` to update indices after the move.
  */
-void	push_to_a(t_plate **sa, t_plate **sb)
+void	push_to_a(t_p **sa, t_p **sb)
 {
-	t_plate	*tmp;
+	t_p	*tmp;
 
 	if (!(*sb))
 		return ;
@@ -44,9 +44,9 @@ void	push_to_a(t_plate **sa, t_plate **sb)
  * - The last element moves to the top.
  * - If stack A has 0 or 1 element, does nothing.
  */
-void	r_rotate_a(t_plate **sa)
+void	r_rotate_a(t_p **sa)
 {
-	t_plate	*iter;
+	t_p		*iter;
 	int		tmp;
 
 	if (!(*sa) || !((*sa)->next))
@@ -68,9 +68,9 @@ void	r_rotate_a(t_plate **sa)
  * - The last element moves to the top.
  * - If stack B has 0 or 1 element, does nothing.
  */
-void	r_rotate_b(t_plate **sb)
+void	r_rotate_b(t_p **sb)
 {
-	t_plate	*iter;
+	t_p		*iter;
 	int		tmp;
 
 	if (!(*sb) || !((*sb)->next))
@@ -91,7 +91,7 @@ void	r_rotate_b(t_plate **sb)
  * Performs `rra` and `rrb` simultaneously.
  * - Both stack A and stack B perform reverse rotate.
  */
-void	rr_ab(t_plate **sa, t_plate **sb)
+void	rr_ab(t_p **sa, t_p **sb)
 {
 	r_rotate_a(sa);
 	r_rotate_b(sb);

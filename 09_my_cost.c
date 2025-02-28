@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:18:37 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:38:43 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
  * - Iterates through the stack until it reaches the last node.
  * - Returns the index of the last node.
  */
-int	m_last_index(t_plate **lst)
+int	m_last_index(t_p **lst)
 {
-	t_plate	*iter;
+	t_p	*iter;
 
 	iter = (*lst);
 	while (iter->next)
@@ -39,7 +39,7 @@ int	m_last_index(t_plate **lst)
  *  - `1` → Perform rotate (`ra` or `rb`).
  *  - `3` → Either direction is acceptable.
  */
-int	r_or_rr(t_plate **lst, int my_index)
+int	r_or_rr(t_p **lst, int my_index)
 {
 	int	median_i;
 	int	last_index;
@@ -77,7 +77,7 @@ int	r_or_rr(t_plate **lst, int my_index)
  * Returns:
  *  - The number of moves required to bring `plate` to the top of the stack.
  */
-int	how_many_moves(t_plate **lst, t_plate **plate)
+int	how_many_moves(t_p **lst, t_p **plate)
 {
 	int	median_i;
 	int	last_index;

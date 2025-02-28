@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:44:09 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:49:26 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * - Moves the bottom element of stack B to the top.
  * - Prints "rrb" for each operation performed.
  */
-void	do_rrb(int count, t_plate **sb)
+void	do_rrb(int count, t_p **sb)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ void	do_rrb(int count, t_plate **sb)
  * - Moves the top element of stack A and B to the bottom.
  * - Prints "rr" for each operation performed.
  */
-void	do_rr(int count, t_plate **sa, t_plate **sb)
+void	do_rr(int count, t_p **sa, t_p **sb)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ void	do_rr(int count, t_plate **sa, t_plate **sb)
  * - Moves the bottom element of stack A and B to the top.
  * - Prints "rrr" for each operation performed.
  */
-void	do_rrr(int count, t_plate **sa, t_plate **sb)
+void	do_rrr(int count, t_p **sa, t_p **sb)
 {
 	int	i;
 

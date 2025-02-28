@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 19:12:18 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:42:50 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	free_strings(char **strings)
 	free(strings);
 }
 
-void	free_stack_a(t_plate **sa)
+void	free_stack_a(t_p **sa)
 {
-	t_plate	*temp;
+	t_p	*temp;
 
 	if (!sa || !(*sa))
 		return ;

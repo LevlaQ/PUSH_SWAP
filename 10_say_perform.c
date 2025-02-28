@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 12:49:46 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:47:51 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * - Any extra moves in B are handled separately using `rrb`.
  * - Updates `perform_rrr`, `perform_rrb`, and `cost` accordingly.
  */
-void	perform_1(t_plate **p, int mvs_a, int mvs_b)
+void	perform_1(t_p **p, int mvs_a, int mvs_b)
 {
 	if (mvs_a <= mvs_b)
 	{
@@ -41,7 +41,7 @@ void	perform_1(t_plate **p, int mvs_a, int mvs_b)
  * - Any extra moves in B are handled separately using `rb`.
  * - Updates `perform_rr`, `perform_rb`, and `cost` accordingly.
  */
-void	perform_2(t_plate **p, int mvs_a, int mvs_b)
+void	perform_2(t_p **p, int mvs_a, int mvs_b)
 {
 	if (mvs_a <= mvs_b)
 	{
@@ -63,16 +63,18 @@ void	perform_2(t_plate **p, int mvs_a, int mvs_b)
  * - Determines the specific move direction for B (`rb` or `rrb`).
  * - Updates the corresponding perform values and the total cost.
  */
-void	perform_3(t_plate **p, int mvs_a, int mvs_b, int drctn_a, int drctn_b)
+void	perform_3(t_p **p, int mvs_a, int mvs_b, int drctn_a)
 {
 	if (drctn_a == 1)
+	{
 		(*p)->perform_ra = mvs_a;
-	else
-		(*p)->perform_rra = mvs_a;
-	if (drctn_b == 1)
-		(*p)->perform_rb = mvs_b;
-	else
 		(*p)->perform_rrb = mvs_b;
+	}
+	else
+	{
+		(*p)->perform_rra = mvs_a;
+		(*p)->perform_rb = mvs_b;
+	}		
 	(*p)->cost = mvs_a + mvs_b;
 }
 
@@ -83,7 +85,7 @@ void	perform_3(t_plate **p, int mvs_a, int mvs_b, int drctn_a, int drctn_b)
  * - Effectively behaves like `perform_1` but is applied 
  * when direction is uncertain.
  */
-void	perform_4(t_plate **p, int mvs_a, int mvs_b)
+void	perform_4(t_p **p, int mvs_a, int mvs_b)
 {
 	if (mvs_a <= mvs_b)
 	{
@@ -106,7 +108,7 @@ void	perform_4(t_plate **p, int mvs_a, int mvs_b)
  *	- Effectively behaves like `perform_2` but is applied when 
  * direction is uncertain.
  */
-void	perform_5(t_plate **p, int mvs_a, int mvs_b)
+void	perform_5(t_p **p, int mvs_a, int mvs_b)
 {
 	if (mvs_a <= mvs_b)
 	{

@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:12:05 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:43:24 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:55:34 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
  *
  * Returns 1 on success, 0 on failure.
  */
-int	to_the_stack_a_main(int argc, char **argv, t_plate **lst)
+int	to_the_stack_a_main(int argc, char **argv, t_p **lst)
 {
 	char	**a_values;
 	int		stcnt;
@@ -60,7 +60,7 @@ int	to_the_stack_a_main(int argc, char **argv, t_plate **lst)
  *
  * Returns 1 on success, 0 on failure.
  */
-int	into_stack(int argc, char **el, t_plate **lst)
+int	into_stack(int argc, char **el, t_p **lst)
 {
 	int	i;
 	int	value;
@@ -78,17 +78,17 @@ int	into_stack(int argc, char **el, t_plate **lst)
 
 /*
  * Creates a new node (plate) and adds it to the front of the stack.
- * - Allocates memory for a new `t_plate` node.
+ * - Allocates memory for a new `t_p` node.
  * - Assigns the given `number` to the node.
  * - Updates `next` and `prev` pointers to maintain the doubly linked list.
  *
  * Returns 1 on success, 0 if memory allocation fails.
  */
-int	add_plate_front(t_plate **lst, int number)
+int	add_plate_front(t_p **lst, int number)
 {
-	t_plate	*new_plate;
+	t_p	*new_plate;
 
-	new_plate = (t_plate *)ft_calloc(1, sizeof(t_plate));
+	new_plate = (t_p *)ft_calloc(1, sizeof(t_p));
 	if (!new_plate)
 		return (0);
 	new_plate->value = number;
@@ -104,9 +104,9 @@ int	add_plate_front(t_plate **lst, int number)
  * Assigns an index to each node in the stack.
  * - Indexing helps with operations like sorting and finding positions.
  */
-void	index_the_stack(t_plate **lst)
+void	index_the_stack(t_p **lst)
 {
-	t_plate	*iter;
+	t_p		*iter;
 	int		i;
 
 	i = 0;

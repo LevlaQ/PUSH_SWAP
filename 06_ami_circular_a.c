@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:31:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:44:17 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:56:11 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
  * Finds the node with the smallest value in the stack.
  * - Iterates through the stack and returns the node with the minimum value.
  */
-t_plate	*find_min(t_plate **lst)
+t_p	*find_min(t_p **lst)
 {
-	t_plate	*iter;
-	t_plate	*min_plate;
+	t_p	*iter;
+	t_p	*min_plate;
 
 	iter = (*lst);
 	min_plate = (*lst);
@@ -37,9 +37,9 @@ t_plate	*find_min(t_plate **lst)
  * - Starts checking from the given node (minimum value).
  * - Returns 1 if the stack is sorted, otherwise returns 0.
  */
-int	is_sorted_from_min(t_plate **sa)
+int	is_sorted_from_min(t_p **sa)
 {
-	t_plate	*iter;
+	t_p	*iter;
 
 	iter = (*sa);
 	while (iter->next)
@@ -55,9 +55,9 @@ int	is_sorted_from_min(t_plate **sa)
  * Retrieves the value of the last node in the stack.
  * - Traverses to the last node and returns its value.
  */
-int	get_end_value(t_plate **lst)
+int	get_end_value(t_p **lst)
 {
-	t_plate	*iter;
+	t_p	*iter;
 
 	iter = (*lst);
 	while (iter->next)
@@ -72,9 +72,9 @@ int	get_end_value(t_plate **lst)
  *   smaller than the first.
  * - Returns 1 if the stack is circularly sorted, otherwise returns 0.
  */
-int	ami_inorder_a(t_plate **sa)
+int	ami_inorder_a(t_p **sa)
 {
-	t_plate	*iter;
+	t_p		*iter;
 	int		index_min;
 
 	if (!(*sa) || !((*sa)->next))
@@ -102,10 +102,10 @@ int	ami_inorder_a(t_plate **sa)
  * Finds the node with the largest value in stack B.
  * - Iterates through the stack and returns the node with the maximum value.
  */
-t_plate	*find_max(t_plate **lst)
+t_p	*find_max(t_p **lst)
 {
-	t_plate	*iter;
-	t_plate	*max_plate;
+	t_p	*iter;
+	t_p	*max_plate;
 
 	iter = (*lst);
 	max_plate = (*lst);

@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:54:49 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:49:50 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:56:22 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
  * rotates (`ra`) or reverse rotates (`rra`) stack A to position the minimum
  * at the top.
  */
-void	sort_me_if_im_not(t_plate **sa)
+void	sort_me_if_im_not(t_p **sa)
 {
-	t_plate	*min_value;
+	t_p		*min_value;
 	int		way;
 	int		mv_count;
 

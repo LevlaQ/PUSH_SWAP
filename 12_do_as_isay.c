@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:45:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:39:30 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * - Uses `perform_rr`, `perform_rrr`, `perform_ra`, `perform_rra`,
  *   `perform_rb`, and `perform_rrb` values from the plate struct.
  */
-void	what_isit(t_plate **plate, t_plate **sa, t_plate **sb)
+void	what_isit(t_p **plate, t_p **sa, t_p **sb)
 {
 	if ((*plate)->perform_rr != 0)
 		do_rr((*plate)->perform_rr, sa, sb);
@@ -39,7 +39,7 @@ void	what_isit(t_plate **plate, t_plate **sa, t_plate **sb)
  * - Moves the top element to the bottom of stack A.
  * - Prints "ra" for each operation performed.
  */
-void	do_ra(int count, t_plate **sa)
+void	do_ra(int count, t_p **sa)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ void	do_ra(int count, t_plate **sa)
  * - Moves the bottom element to the top of stack A.
  * - Prints "rra" for each operation performed.
  */
-void	do_rra(int count, t_plate **sa)
+void	do_rra(int count, t_p **sa)
 {
 	int	i;
 
@@ -75,7 +75,7 @@ void	do_rra(int count, t_plate **sa)
  * - Moves the top element to the bottom of stack B.
  * - Prints "rb" for each operation performed.
  */
-void	do_rb(int count, t_plate **sb)
+void	do_rb(int count, t_p **sb)
 {
 	int	i;
 

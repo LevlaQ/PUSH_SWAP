@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:31:44 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:50:15 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
  * - For each element in A, finds the best target position in B.
  * - Calculates movement costs and performs the necessary operations.
  */
-void	calc_acost_and_ptb(t_plate **sa, t_plate **sb)
+void	calc_acost_and_ptb(t_p **sa, t_p **sb)
 {
-	t_plate	*iter_a;
-	t_plate	*target;
-	t_plate	*min_cost;
+	t_p	*iter_a;
+	t_p	*target;
+	t_p	*min_cost;
 
 	while (!ami_inorder_a(sa))
 	{
@@ -51,11 +51,11 @@ void	calc_acost_and_ptb(t_plate **sa, t_plate **sb)
  * - Ensures that elements are placed in their correct position in A.
  * - Continues until stack B is empty.
  */
-void	calc_bcost_and_pta(t_plate **sa, t_plate **sb)
+void	calc_bcost_and_pta(t_p **sa, t_p **sb)
 {
-	t_plate	*iter_b;
-	t_plate	*target;
-	t_plate	*min_cost;
+	t_p	*iter_b;
+	t_p	*target;
+	t_p	*min_cost;
 
 	while (*sb)
 	{
@@ -80,9 +80,9 @@ void	calc_bcost_and_pta(t_plate **sa, t_plate **sb)
  * - Ensures that elements are placed in their correct position in A.
  * - Continues until stack B is empty.
  */
-void	reset_performs(t_plate **lst)
+void	reset_performs(t_p **lst)
 {
-	t_plate	*iter;
+	t_p	*iter;
 
 	iter = (*lst);
 	while (iter)

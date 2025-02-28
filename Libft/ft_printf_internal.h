@@ -6,12 +6,12 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:18:01 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/06 18:41:47 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:48:09 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_INTERNAL_H
-#define FT_PRINTF_INTERNAL_H
+# define FT_PRINTF_INTERNAL_H
 
 # ifdef __APPLE__
 #  define NUL "0x0"

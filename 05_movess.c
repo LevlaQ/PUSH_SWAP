@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:36:19 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/27 19:43:52 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:55:53 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
  * - Updates `next` and `prev` pointers accordingly.
  * - Calls `index_the_stack()` to update indices after the move.
  */
-void	push_to_b(t_plate **sa, t_plate **sb)
+void	push_to_b(t_p **sa, t_p **sb)
 {
-	t_plate	*tmp;
+	t_p	*tmp;
 
 	if (!(*sa))
 		return ;
@@ -44,9 +44,9 @@ void	push_to_b(t_plate **sa, t_plate **sb)
  * - The first element moves to the last position.
  * - If stack A has 0 or 1 element, does nothing.
  */
-void	rotate_a(t_plate **sa)
+void	rotate_a(t_p **sa)
 {
-	t_plate	*iter;
+	t_p		*iter;
 	int		tmp;
 
 	if (!(*sa) || !((*sa)->next))
@@ -66,9 +66,9 @@ void	rotate_a(t_plate **sa)
  * - The first element moves to the last position.
  * - If stack B has 0 or 1 element, does nothing.
  */
-void	rotate_b(t_plate **sb)
+void	rotate_b(t_p **sb)
 {
-	t_plate	*iter;
+	t_p		*iter;
 	int		tmp;
 
 	if (!(*sb) || !((*sb)->next))
@@ -87,7 +87,7 @@ void	rotate_b(t_plate **sb)
  * Performs `ra` and `rb` simultaneously.
  * - Both stack A and stack B perform rotate.
  */
-void	rotate_ab(t_plate **sa, t_plate **sb)
+void	rotate_ab(t_p **sa, t_p **sb)
 {
 	rotate_a(sa);
 	rotate_b(sb);

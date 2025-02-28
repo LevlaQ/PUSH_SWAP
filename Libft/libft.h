@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:22:38 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/06 19:45:26 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:49:48 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 typedef struct s_list
 {
-    void            *content;
-    struct s_list   *next;
-}                   t_list;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 void	*ft_memset(void *b, int x, size_t n);
 int		ft_isalpha(int c);
