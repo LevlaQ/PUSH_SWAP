@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 12:23:49 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 12:25:50 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,16 @@ int	error_two_args(char **argv)
 	char	**el;
 
 	if (!chk_if_string(argv[1]))
-		return (write(2, "Error\n", 5), 0);
+		return (write(2, "Error\n", 6), 0);
 	if (argv[1][0] == '\0' || !argv[1])
-		return (write(2, "Error\n", 5), 0);
+		return (write(2, "Error\n", 6), 0);
 	if (!chk_spaces(argv[1]))
-		return (write(2, "Error\n", 5), 0);
+		return (write(2, "Error\n", 6), 0);
 	el = ft_split(argv[1], ' ');
 	if (!el || !el[0])
-		return (write(2, "Error\n", 5), 0);
+		return (write(2, "Error\n", 6), 0);
 	if (!chk_chrctrs(el))
-		return (write(2, "Error\n", 5), free_strings(el), 0);
+		return (write(2, "Error\n", 6), free_strings(el), 0);
 	if (!chk_integers_general(el))
 		return (free_strings(el), 0);
 	return (free_strings(el), 1);
@@ -75,7 +75,7 @@ int	error_multi_args(char **argv)
 	{
 		if (chk_if_string(argv[i]))
 		{
-			write(2, "Error\n", 5);
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		i++;
@@ -83,7 +83,7 @@ int	error_multi_args(char **argv)
 	argv = argv + 1;
 	if (!chk_chrctrs(argv))
 	{
-		write(2, "Error\n", 5);
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	if (!chk_integers_general(argv))
