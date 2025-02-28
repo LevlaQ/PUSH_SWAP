@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:54:49 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 11:56:22 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:48:54 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,32 @@ void	sort_me_if_im_not(t_p **sa)
 			do_rra(mv_count, sa);
 	}
 	return ;
+}
+
+/*
+ * Function to be called when only three elements
+ * present
+*/
+void	three_biggest_to_last(t_p **sa)
+{
+	t_p	*max_plate;
+
+	max_plate = find_max(sa);
+	if (max_plate->index == 2)
+		return ;
+	else if (max_plate->index == 1)
+		do_rra(1, sa);
+	else
+		do_ra(1, sa);
+}
+
+void	swap_if_nsorted(t_p **sa)
+{
+	t_p	*min_plate;
+
+	min_plate = find_min(sa);
+	if (min_plate->index != 0)
+		swap_a(sa);
+	else
+		return ;
 }

@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:53:02 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:47:47 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	main(int argc, char **argv)
 	stack_b = ft_calloc(1, sizeof(t_p **));
 	if (!to_the_stack_a_main(argc, argv, stack_a))
 		return (0);
+	if (m_last_index(stack_a) == 2)
+	{
+		the_three(stack_a);
+		return (0);
+	}
 	calc_acost_and_ptb(stack_a, stack_b);
 	calc_bcost_and_pta(stack_a, stack_b);
 	sort_me_if_im_not(stack_a);

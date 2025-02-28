@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:18:25 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 11:55:47 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:50:01 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,21 @@ void	rr_ab(t_p **sa, t_p **sb)
 {
 	r_rotate_a(sa);
 	r_rotate_b(sb);
+}
+
+void	swap_a(t_p **sa)
+{
+	t_p	*tmp;
+
+	if (m_last_index(sa) < 1)
+		return ;
+	tmp = (*sa);
+	tmp->next->prev = NULL;
+	tmp->prev = tmp->next;
+	tmp->next = tmp->next->next;
+	if (tmp->next)
+		tmp->next->prev = tmp;
+	tmp->prev->next = tmp;
+	*sa = tmp->prev;
+	ft_printf("sa\n");
 }

@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 13:31:44 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:48:14 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,10 @@ void	calc_acost_and_ptb(t_p **sa, t_p **sb)
 	t_p	*target;
 	t_p	*min_cost;
 
+	if (!(*sb))
+		b_is_empty(sa, sb);
 	while (!ami_inorder_a(sa))
 	{
-		if (!(*sb))
-		{
-			push_to_b(sa, sb);
-			ft_printf("pb\n");
-		}
 		iter_a = (*sa);
 		while (iter_a)
 		{
@@ -75,25 +72,19 @@ void	calc_bcost_and_pta(t_p **sa, t_p **sb)
 	}
 }
 
-/*
- * Moves elements from stack B back to stack A after stack A is sorted.
- * - Ensures that elements are placed in their correct position in A.
- * - Continues until stack B is empty.
- */
-void	reset_performs(t_p **lst)
+void	b_is_empty(t_p **sa, t_p **sb)
 {
-	t_p	*iter;
-
-	iter = (*lst);
-	while (iter)
+	if (!ami_inorder_a(sa))
 	{
-		iter->perform_rr = 0;
-		iter->perform_rrr = 0;
-		iter->perform_ra = 0;
-		iter->perform_rra = 0;
-		iter->perform_rb = 0;
-		iter->perform_rrb = 0;
-		iter->cost = 0;
-		iter = iter->next;
+		push_to_b(sa, sb);
+		ft_printf("pb\n");
 	}
+	else
+		return ;
+}
+
+void	the_three(t_p **sa)
+{
+	three_biggest_to_last(sa);
+	swap_if_nsorted(sa);
 }

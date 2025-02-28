@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:20:52 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 11:55:03 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:36:06 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,10 @@ void	calc_acost_and_ptb(t_p **sa, t_p **sb);
 void	calc_bcost_and_pta(t_p **sa, t_p **sb);
 void	reset_performs(t_p **lst);
 void	free_stack_a(t_p **sa);
+void	b_is_empty(t_p **sa, t_p **sb);
+void	swap_a(t_p **sa);
+void	three_biggest_to_last(t_p **sa);
+void	swap_if_nsorted(t_p **sa);
+void	the_three(t_p **sa);
 
 #endif

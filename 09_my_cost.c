@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:18:37 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 11:53:00 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:49:38 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	m_last_index(t_p **lst)
 {
 	t_p	*iter;
 
+	if (!(*lst))
+		return (0);
 	iter = (*lst);
 	while (iter->next)
 		iter = iter->next;

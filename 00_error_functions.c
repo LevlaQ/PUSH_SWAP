@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:49:04 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 12:25:50 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:44:08 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	error_two_args(char **argv)
 	char	**el;
 
 	if (!chk_if_string(argv[1]))
-		return (write(2, "Error\n", 6), 0);
+		return (0);
 	if (argv[1][0] == '\0' || !argv[1])
 		return (write(2, "Error\n", 6), 0);
 	if (!chk_spaces(argv[1]))
