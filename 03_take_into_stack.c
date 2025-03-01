@@ -6,7 +6,7 @@
 /*   By: gyildiz <gyildiz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:12:05 by gyildiz           #+#    #+#             */
-/*   Updated: 2025/02/28 11:55:34 by gyildiz          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:57:14 by gyildiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ int	to_the_stack_a_main(int argc, char **argv, t_p **lst)
 	{
 		a_values = ft_split(argv[1], ' ');
 		if (!a_values)
-			return (write(2, "Error(Problem creating the stack)\n", 35), 0);
+			return (write(2, "Error\n", 6), 0);
 		stcnt = 0;
 		while (a_values[stcnt])
 			stcnt++;
 		if (!into_stack(stcnt, a_values, lst))
-			return (write(2, "Error(Problem creating the stack)\n", 35), 0);
+			return (write(2, "Error\n", 6), 0);
 		index_the_stack(lst);
 		free_strings(a_values);
 	}
 	else if (argc > 2)
 	{
 		if (!into_stack(argc - 1, argv + 1, lst))
-			return (write(2, "Error(Problem creating the stack)\n", 35), 0);
+			return (write(2, "Error\n", 6), 0);
 		index_the_stack(lst);
 	}
 	return (1);
